@@ -2,6 +2,11 @@
 
 We provide codes based on BrainTumor experiments using FAA-CLIP (you can change to other methods following the steps listed below), you can simulate directly using main.py.
 
+<p align="center">
+<img src="./intro.png" alt="intro" width="90%"/>
+</p>
+
+
 ## Requirements
 
 We suggest you to use the following packages:
