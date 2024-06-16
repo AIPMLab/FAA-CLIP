@@ -3,7 +3,7 @@
 We provide codes based on BrainTumor experiments using FAA-CLIP (you can change to other methods following the steps listed below), you can simulate directly using main.py.
 
 <p align="center">
-<img src="./TMI_Pipeline2_new.pdf" alt="intro" width="90%"/>
+<img src="./Pipeline.png" alt="intro" width="90%"/>
 </p>
 
 
