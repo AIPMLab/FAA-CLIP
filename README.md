@@ -87,3 +87,5 @@ Here is a case study about the structure of our dataset as follows:
     client_2/
     client_3/
 ```
+
+We provide BrainTumor data as an example. you can download it via https://drive.google.com/drive/folders/1__sN_2857bnhjJdEoBR48dweXRqM_ZsA?usp=sharing.
