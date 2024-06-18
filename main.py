@@ -78,8 +78,12 @@ if __name__ == '__main__':
     previous_nets = models
     adv = [AdversarialLoss() for idx in range(0, client_num)]
     if args.aggmode == 'att':
-        optimizers = [optim.Adam(params=[{'params': models[idx].fea_attn.parameters()}], lr=args.lr, betas=(
-            args.beta1, args.beta2), eps=args.eps, weight_decay=args.weight_decay) for idx in range(client_num)]
+        if args.method == 'ours':
+            optimizers = [optim.Adam(params=[{'params': models[idx].fea_attn.parameters()},{'params': adv[idx].domain_classifier.parameters()}], lr=args.lr, betas=(
+                args.beta1, args.beta2), eps=args.eps, weight_decay=args.weight_decay) for idx in range(client_num)]
+        else:
+            optimizers = [optim.Adam(params=[{'params': models[idx].fea_attn.parameters()}], lr=args.lr, betas=(
+                args.beta1, args.beta2), eps=args.eps, weight_decay=args.weight_decay) for idx in range(client_num)]
     if args.aggmode == 'avg':
         optimizers = [optim.Adam(params=[{'params': models[idx].parameters()}], lr=args.lr, betas=(
             args.beta1, args.beta2), eps=args.eps, weight_decay=args.weight_decay) for idx in range(client_num)]
