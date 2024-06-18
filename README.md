@@ -1,4 +1,6 @@
-# FAA-CLIP
+# FAA-CLIP: Federated Adversarial Adaptation of CLIP
+
+Authors: Yihang~Wu, Christian~Desrosiers, Ahmad~Chaddad
 
 We provide codes based on BrainTumor experiments using FAA-CLIP (you can change to other methods following the steps listed below), you can simulate directly using main.py.
 
