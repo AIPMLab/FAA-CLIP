@@ -69,13 +69,15 @@ if __name__ == '__main__':
         models[i].model.to(device)
         models[i].fea_attn.to(device)
     best_changed = False
-    server_model_pre = server_model
+    server_model.to(device)
+    server_model_pre = copy.deepcopy(server_model)
+    server_model_pre.to(device)
     # best_acc = [0. for j in range(client_num)]
     best_acc = [0 for idx in range(0, client_num)]
     finalrecord = ''
     logrecord = ''
     log = [[] for idx in range(0, client_num)]
-    previous_nets = models
+    previous_nets = [copy.deepcopy(models[idx].to(device)) for idx in range(0, client_num)]
     adv = [AdversarialLoss() for idx in range(0, client_num)]
     if args.aggmode == 'att':
         if args.method == 'ours':
@@ -111,8 +113,8 @@ if __name__ == '__main__':
 
 
         with torch.no_grad():
-            server_model_pre = server_model
-            previous_nets = models
+            server_model_pre = copy.deepcopy(server_model.to(device))
+            previous_nets = [copy.deepcopy(models[idx].to(device)) for idx in range(0, client_num)]
             server_model, models = communication(
                 args, server_model, models, client_weights)
 
